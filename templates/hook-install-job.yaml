@@ -40,6 +40,9 @@ spec:
         volumeMounts:
           - name: config
             mountPath: /config
+          {{- with .Values.hookInstallJob.volumeMounts }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
         env:
         {{- include "redash.env" . | nindent 10 }}
         {{- range $key, $value := .Values.server.env }}
@@ -57,6 +60,9 @@ spec:
         - name: config
           configMap:
             name: {{ include "redash.fullname" . }}
+        {{- with .Values.hookInstallJob.volumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     {{- with .Values.hookInstallJob.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}

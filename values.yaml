@@ -557,6 +557,12 @@ hookInstallJob:
   # hookInstallJob.podAnnotations -- Annotations for scheduled worker pod assignment [ref](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
   podAnnotations: {}
 
+  # hookInstallJob.volumes -- Volumes for ad-hoc pod worker assignment [ref](https://kubernetes.io/docs/concepts/storage/volumes/)
+  volumes: []
+
+  # hookInstallJob.volumeMounts -- VolumeMounts for ad-hoc worker pod assignment [ref](https://kubernetes.io/docs/concepts/storage/volumes/)
+  volumeMounts: []
+
 ## Configuration for hook-upgrade-job
 hookUpgradeJob:
   # hookUpgradeJob.ttlSecondsAfterFinished -- ttl for install job [ref](https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/)
@@ -585,6 +591,12 @@ hookUpgradeJob:
 
   # hookUpgradeJob.podAnnotations -- Annotations for scheduled worker pod assignment [ref](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
   podAnnotations: {}
+
+  # hookUpgradeJob.volumes -- Volumes for ad-hoc pod worker assignment [ref](https://kubernetes.io/docs/concepts/storage/volumes/)
+  volumes: []
+
+  # hookUpgradeJob.volumeMounts -- VolumeMounts for ad-hoc worker pod assignment [ref](https://kubernetes.io/docs/concepts/storage/volumes/)
+  volumeMounts: []
 
 # externalPostgreSQL -- External PostgreSQL configuration. To use an external PostgreSQL instead of the automatically deployed postgresql chart: set postgresql.enabled to false then uncomment and configure the externalPostgreSQL connection URL (e.g. postgresql://user:pass@host:5432/database)
 externalPostgreSQL:
