@@ -60,6 +60,10 @@ spec:
           {{- if .Values.scheduler.resources }}
           resources: {{ toYaml .Values.scheduler.resources | nindent 12 }}
           {{- end }}
+    {{- with .Values.scheduler.initContainers }}
+      initContainers:
+        {{- toYaml .Values.scheduler.initContainers | nindent 8 }}
+    {{- end }}
       volumes:
         - name: config
           configMap:

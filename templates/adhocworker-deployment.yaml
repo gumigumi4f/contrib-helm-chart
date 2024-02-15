@@ -58,6 +58,10 @@ spec:
           {{- if .Values.adhocWorker.resources }}
           resources: {{ toYaml .Values.adhocWorker.resources | nindent 12 }}
           {{- end }}
+    {{- with .Values.adhocWorker.initContainers }}
+      initContainers:
+        {{- toYaml .Values.adhocWorker.initContainers | nindent 8 }}
+    {{- end }}
       volumes:
         - name: config
           configMap:

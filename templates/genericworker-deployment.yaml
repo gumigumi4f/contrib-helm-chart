@@ -58,6 +58,10 @@ spec:
           {{- if .Values.genericWorker.resources }}
           resources: {{ toYaml .Values.genericWorker.resources | nindent 12 }}
           {{- end }}
+    {{- with .Values.genericWorker.initContainers }}
+      initContainers:
+        {{- toYaml .Values.genericWorker.initContainers | nindent 8 }}
+    {{- end }}
       volumes:
         - name: config
           configMap:

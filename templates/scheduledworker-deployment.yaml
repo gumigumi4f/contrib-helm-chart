@@ -58,6 +58,10 @@ spec:
           {{- if .Values.scheduledWorker.resources }}
           resources: {{ toYaml .Values.scheduledWorker.resources | nindent 12 }}
           {{- end }}
+    {{- with .Values.scheduledWorker.initContainers }}
+      initContainers:
+        {{- toYaml .Values.scheduledWorker.initContainers | nindent 8 }}
+    {{- end }}
       volumes:
         - name: config
           configMap:
