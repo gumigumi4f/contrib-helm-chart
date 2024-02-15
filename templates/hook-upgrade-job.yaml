@@ -58,7 +58,7 @@ spec:
         {{- end }}
     {{- with .Values.hookUpgradeJob.initContainers }}
       initContainers:
-        {{- toYaml .Values.hookUpgradeJob.initContainers | nindent 8 }}
+        {{- toYaml . | nindent 8 }}
     {{- end }}
       volumes:
         - name: config

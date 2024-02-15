@@ -60,7 +60,7 @@ spec:
           {{- end }}
     {{- with .Values.genericWorker.initContainers }}
       initContainers:
-        {{- toYaml .Values.genericWorker.initContainers | nindent 8 }}
+        {{- toYaml . | nindent 8 }}
     {{- end }}
       volumes:
         - name: config

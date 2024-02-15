@@ -58,7 +58,7 @@ spec:
         {{- end }}
     {{- with .Values.hookInstallJob.initContainers }}
       initContainers:
-        {{- toYaml .Values.hookInstallJob.initContainers | nindent 8 }}
+        {{- toYaml . | nindent 8 }}
     {{- end }}
       volumes:
         - name: config
